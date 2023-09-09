@@ -98,7 +98,7 @@
                     // let days = { Sun:"Sunday", Mon:"Monday", Tue:"Tuesday", Wed:"Wednesday",Thu:"Thursday",Fri:"Friday",Sat:"Saturday"}
                     let dateUTC = new Date();
                     str +="<p class='m-05'  data-testid='currentDayOfTheWeek'> Day:" + dateUTC.toLocaleString('en-NG', { weekday: 'long', timeZone: 'UTC' })+ "</p>" 
-                                                    + "<p class='m-05' data-testid='currentUTCTime'> Time:" + dateUTC.getUTCMilliseconds()  + "</p>";
+                                                    + "<p class='m-05' data-testid='currentUTCTime'> Time:" + dateUTC.getTime()  + "</p>";
                     dateTime.innerHTML = str;
                 }
 
