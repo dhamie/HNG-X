@@ -80,11 +80,11 @@
     <body>
         <div class="panel">
             <div class="panel-body flex-box">
-                <img src="assets/images/profile.jpg" data-testid="profile.jpg" class="img">
+                <img src="assets/images/profile.jpg" data-testid="Damilola" alt="profile.jpg" class="img">
                 <div class="content-box flex-box">
-                    <h1 data-testid="Damilola" class="text-white m-05">Damilola</h1>
-                    <h3 data-testid="Front-End" class="text-white m-05">Front-End</h3>
-                    <a href="https://github.com/dhamie/hng-x/" target="_blank" class="aLink" data-testid="https://github.com/dhamie/hng-x/">Github URL</a>
+                    <h1 data-testid="slackUserName" class="text-white m-05">Damilola</h1>
+                    <h3 data-testid="myTrack" class="text-white m-05">Front-End</h3>
+                    <a href="https://github.com/dhamie/hng-x/" target="_blank" class="aLink" data-testid="githubURL”">Github URL</a>
                     <div id="date-time" class="flex-box flex-dir-row date-time"></div>
                 </div>
             </div>
@@ -97,8 +97,8 @@
                     let str = "";
                     // let days = { Sun:"Sunday", Mon:"Monday", Tue:"Tuesday", Wed:"Wednesday",Thu:"Thursday",Fri:"Friday",Sat:"Saturday"}
                     let dateUTC = new Date();
-                    str +="<p class='m-05'  data-testid="+ dateUTC.toLocaleString('en-NG', { weekday: 'long', timeZone: 'UTC' })+"> Day:" + dateUTC.toLocaleString('en-NG', { weekday: 'long', timeZone: 'UTC' })+ "</p>" 
-                                                    + "<p class='m-05' data-testid="+ dateUTC.toLocaleTimeString('en-NG', { timeZone: 'UTC' })  + "> Time:" + dateUTC.toLocaleTimeString('en-NG', { timeZone: 'UTC' })  + "</p>";
+                    str +="<p class='m-05'  data-testid='currentDayOfTheWeek'> Day:" + dateUTC.toLocaleString('en-NG', { weekday: 'long', timeZone: 'UTC' })+ "</p>" 
+                                                    + "<p class='m-05' data-testid='currentUTCTime'> Time:" + dateUTC.getUTCMilliseconds()  + "</p>";
                     dateTime.innerHTML = str;
                 }
 
