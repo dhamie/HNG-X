@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HNG-X</title>
+        <style>
+            :root{
+                --border-rad-2: 1rem;
+                --shadow: 0px 1px 2px rgba(213, 187, 128, 0.1), 0px 2px 4px rgba(240, 226, 195, 0.1), 0px 4px 8px rgba(213, 187, 128, 0.1), 0px 8px 16px rgba(240, 226, 195, 0.1);
+            }
+            body{
+                margin: 0;
+                padding: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .m-05{
+                margin: .5rem;
+            }
+            .aLink{
+                color:#2b6abc;
+                text-decoration: none;
+            }
+            .aLink:hover{
+                text-decoration: underline;
+            }
+            .text-white{
+                color: white;
+            }
+            .flex-box{
+                display: flex;
+                flex-direction: column;
+                justify-self: center;
+                align-items: center;
+            }
+            .flex-dir-row{
+                flex-direction: row;
+            }            
+            .img{
+                width: 300px;
+                border-radius: var(--border-rad-2);
+                box-shadow: var(--shadow);
+                max-width: 400px;
+            }
+            .panel{
+                width: 100vw;
+                height: 100vh;
+                background: #000;
+                position: relative;
+                background: url('assets/images/bg.jpg');
+                background-position: center;
+                background-size: cover;
+            }
+            .panel .panel-body{
+                width: 20%;
+                height: fit-content;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);            
+                padding: 10%;
+            }
+            .panel .panel-body .content-box{
+                color: white;
+            }
+            
+            @media (max-width: 320px) {
+                .img{
+                    width: 100%;
+                }
+                .panel .panel-body {
+                    width: 80%;
+                }
+                .date-time {
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="panel">
+            <div class="panel-body flex-box">
+                <img src="assets/images/profile.jpg" data-testid="profile-image" class="img">
+                <div class="content-box flex-box">
+                    <h1 data-testid="profile-name" class="text-white m-05">Damilola</h1>
+                    <h3 data-testid="profile-track" class="text-white m-05">Front End</h3>
+                    <a href="https://github.com/dhamie/HNG-X" target="_blank" class="aLink" data-testid="profile-link">Github URL</a>
+                    <div id="date-time" class="flex-box flex-dir-row date-time"></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            window.addEventListener("load", (e) => {
+                function dateTime(){
+                    let dateTime = document.getElementById("date-time");
+                    let str = "";
+                    // let days = { Sun:"Sunday", Mon:"Monday", Tue:"Tuesday", Wed:"Wednesday",Thu:"Thursday",Fri:"Friday",Sat:"Saturday"}
+                    let dateUTC = new Date();
+                    str +="<p class='m-05'  data-testid="+ dateUTC.toLocaleString('en-NG', { weekday: 'long', timeZone: 'UTC' })+"> Day:" + dateUTC.toLocaleString('en-NG', { weekday: 'long', timeZone: 'UTC' })+ "</p>" 
+                                                    + "<p class='m-05' data-testid="+ dateUTC.toLocaleTimeString('en-NG', { timeZone: 'UTC' })  + "> Time:" + dateUTC.toLocaleTimeString('en-NG', { timeZone: 'UTC' })  + "</p>";
+                    dateTime.innerHTML = str;
+                }
+
+                setInterval(dateTime, 1000);             
+                
+            });
+        </script>
+    </body>
+</html>
